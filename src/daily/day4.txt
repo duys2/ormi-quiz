@@ -1,0 +1,31 @@
+2024. 06. 04 (화)
+
+/* ---------------- 문제 ---------------- */
+1. 값이 1인 변수 count를 만들고, While 문으로 무한 반복문을 작성하여 count가 10,000이 되면 멈추는 로직을 작성하시오.
+2. for문을 만들고 9단 부터 2단까지 역행하는 구구단을 만드세요.
+3. continue 와 break 의 차이점에 대해 설명해주세요.
+
+/* ---------------- 답 ---------------- */
+1.
+```java
+int count = 1;
+
+while (true) {
+	if (count == 100)
+		break;
+	count++;
+}
+
+System.out.println(count);
+```
+
+2.
+```java
+for (int i = 9; i >= 2; i--) {
+	for (int j = 9; j >= 1; j--) {
+		System.out.println(i + " x " + j + " = " + i * j);
+	}
+}
+```
+
+3. continue는 반복문 한 단계 건너뛰기, break는 해당 반복문 종료
