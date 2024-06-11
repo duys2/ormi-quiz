@@ -14,6 +14,7 @@ public class WeeklyQuiz1 {
 				int num1, num2;
 
 				if (function == 0) {
+					System.out.println("종료");
 					break;
 				}
 
