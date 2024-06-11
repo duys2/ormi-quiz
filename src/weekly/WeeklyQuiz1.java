@@ -55,5 +55,7 @@ public class WeeklyQuiz1 {
 				scanner.next(); // 입력 버퍼 비우기
 			}
 		}
+
+		scanner.close();
 	}
 }
