@@ -1,6 +1,5 @@
-package weekly;
+package weekly1;
 
-import java.util.InputMismatchException; // catch에서 Exception말고 InputMismatchException쓰려면 필요
 import java.util.Scanner;
 
 public class WeeklyQuiz1 {
