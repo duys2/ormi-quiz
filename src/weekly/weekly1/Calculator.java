@@ -2,7 +2,7 @@ package weekly.weekly1;
 
 import java.util.Scanner;
 
-public class WeeklyQuiz1 {
+public class Calculator {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 
