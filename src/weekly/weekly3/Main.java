@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String args) {
+	public static void main(String[] args) {
 		BookShelf bookShelf = new BookShelf(); // BookShelf 객체 생성
 		BookStack<Integer> bookStack = new BookStack<>(); // BookStack 객체 생성
 
