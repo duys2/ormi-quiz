@@ -12,7 +12,8 @@ public class Main {
 		// 사용자 입력을 받기 위한 Scanner 객체 생성
 		Scanner scanner = new Scanner(System.in);
 
-		try { // try-catch 블록으로 예외 처리
+		// try-catch 블록으로 예외 처리
+		try {
 			// BookShelf에 넣을 도서 정보들
 			// 첫 번째 도서
 			String bookShelfTitle1;
