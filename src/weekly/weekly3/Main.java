@@ -12,13 +12,18 @@ public class Main {
 		// 사용자 입력을 받기 위한 Scanner 객체 생성
 		Scanner scanner = new Scanner(System.in);
 
-		try { // 정상 실행 될 실행문
-			/* BookShelf에 넣을 도서 정보 */
-			String bookShelfTitle;
-			String bookShelfAuthor;
-			String bookShelfIdentifier;
+		try { // try-catch 블록으로 예외 처리
+			// BookShelf에 넣을 도서 정보들
+			// 첫 번째 도서
+			String bookShelfTitle1;
+			String bookShelfAuthor1;
+			String bookShelfIdentifier1;
+			// 두 번째 도서
+			String bookShelfTitle2;
+			String bookShelfAuthor2;
+			String bookShelfIdentifier2;
 
-			/* BookStack에 넣을 도서 정보들 */
+			// BookStack에 넣을 도서 정보들
 			// 첫 번째 도서
 			String bookStackTitle1;
 			String bookStackAuthor1;
@@ -28,13 +33,21 @@ public class Main {
 			String bookStackAuthor2;
 			int bookStackIdentifier2;
 
-			/* 입력 받기 */
-			System.out.print("(BookShelf)제목을 입력하세요: ");
-			bookShelfTitle = scanner.nextLine();
-			System.out.print("(BookShelf)저자를 입력하세요: ");
-			bookShelfAuthor = scanner.nextLine();
-			System.out.print("(BookShelf)식별자를 입력하세요: ");
-			bookShelfIdentifier = scanner.nextLine();
+			// 입력 받기
+			System.out.print("(첫 번째 BookShelf)제목을 입력하세요: ");
+			bookShelfTitle1 = scanner.nextLine();
+			System.out.print("(첫 번째 BookShelf)저자를 입력하세요: ");
+			bookShelfAuthor1 = scanner.nextLine();
+			System.out.print("(첫 번째 BookShelf)식별자를 입력하세요: ");
+			bookShelfIdentifier1 = scanner.nextLine();
+
+			System.out.print("(두 번째 BookShelf)제목을 입력하세요: ");
+			bookShelfTitle2 = scanner.nextLine();
+			System.out.print("(두 번째 BookShelf)저자를 입력하세요: ");
+			bookShelfAuthor2 = scanner.nextLine();
+			System.out.print("(두 번째 BookShelf)식별자를 입력하세요: ");
+			bookShelfIdentifier2 = scanner.nextLine();
+
 			System.out.print("(첫 번째 BookStack)제목을 입력하세요: ");
 			bookStackTitle1 = scanner.nextLine();
 			System.out.print("(첫 번째 BookStack)저자를 입력하세요: ");
@@ -42,6 +55,7 @@ public class Main {
 			System.out.print("(첫 번째 BookStack)식별자를 입력하세요: ");
 			bookStackIdentifier1 = scanner.nextInt();
 			scanner.nextLine();
+
 			System.out.print("(두 번째 BookStack)제목을 입력하세요: ");
 			bookStackTitle2 = scanner.nextLine();
 			System.out.print("(두 번째 BookStack)저자를 입력하세요: ");
@@ -50,22 +64,25 @@ public class Main {
 			bookStackIdentifier2 = scanner.nextInt();
 			scanner.nextLine();
 
-			/* Book 객체 생성 */
-			Book<String> toBookShelfObject = new Book<>(bookShelfTitle, bookShelfAuthor, bookShelfIdentifier);
+			// Book 객체 생성
+			Book<String> toBookShelfObject1 = new Book<>(bookShelfTitle1, bookShelfAuthor1, bookShelfIdentifier1);
+			Book<String> toBookShelfObject2 = new Book<>(bookShelfTitle2, bookShelfAuthor2, bookShelfIdentifier2);
 			Book<Integer> toBookStackObject1 = new Book<>(bookStackTitle1, bookStackAuthor1, bookStackIdentifier1);
 			Book<Integer> toBookStackObject2 = new Book<>(bookStackTitle2, bookStackAuthor2, bookStackIdentifier2);
 
-			/* 객체 추가 */
-			bookShelf.addBook(toBookShelfObject);
+			// 객체 추가
+			bookShelf.addBook(toBookShelfObject1);
+			bookShelf.addBook(toBookShelfObject2);
 			bookStack.pushBook(toBookStackObject1);
 			bookStack.pushBook(toBookStackObject2);
 
+			// 검색할 도서 제목 입력 받기
 			System.out.print("\n(BookShelf)검색할 도서 제목을 입력하세요: ");
 			String searchTitle = scanner.nextLine();
 
 			// BookShelf: 도서 제목으로 검색 후 결과 출력
 			System.out.println("\n===== BookShelf 도서 제목 검색 시작 =====");
-			List<Book> searchByTitle = bookShelf.searchByAuthor(searchTitle);
+			List<Book> searchByTitle = bookShelf.searchByTitle(searchTitle);
 			// 검색된 도서가 있으면 출력하고 없으면 검색된 도서가 없음을 알림
 			if (searchByTitle.isEmpty()) {
 				System.out.println("검색된 도서가 없습니다.");
@@ -78,6 +95,7 @@ public class Main {
 			}
 			System.out.println("===== BookShelf 도서 제목 검색 종료 =====");
 
+			// 검색할 도서 저자 입력 받기
 			System.out.print("\n(BookShelf)검색할 도서 저자를 입력하세요: ");
 			String searchAuthor = scanner.nextLine();
 
@@ -96,7 +114,7 @@ public class Main {
 			}
 			System.out.println("===== BookShelf 도서 저자 검색 종료 =====");
 
-			/* BookStack: 도서를 꺼내고(popBook) 꺼낸 도서의 정보 출력하기 */
+			// BookStack: 도서를 꺼내고(popBook) 꺼낸 도서의 정보 출력하기
 			System.out.println("\n===== BookStack popBook()으로 받은 도서 정보 출력 시작 =====");
 			// 스택은 후입선출이므로 두 번째(마지막)로 입력한 도서의 정보가 출력된다.
 			Book<Integer> fromStackPopBook = bookStack.popBook();
@@ -105,7 +123,7 @@ public class Main {
 			System.out.println(fromStackPopBook.getIdentifier());
 			System.out.println("===== BookStack popBook()으로 받은 도서 정보 출력 종료 =====");
 
-			/* BookStack: 맨 위의 도서를 확인하고(peekBook) 해당 도서의 정보 출력하기 */
+			// BookStack: 맨 위의 도서를 확인하고(peekBook) 해당 도서의 정보 출력하기
 			System.out.println("\n===== BookStack peekBook()으로 받은 도서 정보 출력 시작 =====");
 			// 스택은 후입선출이므로 pop을 했으니 첫 번째로 입력한 도서만 남는다.
 			System.out.println(bookStack.peekBook().getTitle());
